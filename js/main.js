@@ -4,7 +4,9 @@ let app = new Vue({
     firstName: "Bob",
     lastName: "Smith",
     birthDate: new Date(1988, 01, 14),
-    items: [{
+    value: 0,
+    items: [
+      {
         id: 1,
         title: "potato",
         price: 22.2
@@ -26,11 +28,15 @@ let app = new Vue({
       }
     ]
   },
-  // methods: {},
+  methods: {
+    updateValue() {
+      this.value++;
+    }
+  },
   computed: {
     age() {
       const MS_IN_YEAR = 1000 * 3600 * 24 * 365;
-      const LIVED_MS = (Date.now() - this.birthDate);
+      const LIVED_MS = Date.now() - this.birthDate;
 
       return Math.trunc(LIVED_MS / MS_IN_YEAR);
     },
