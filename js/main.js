@@ -33,6 +33,9 @@ let app = new Vue({
       const LIVED_MS = (Date.now() - this.birthDate);
 
       return Math.trunc(LIVED_MS / MS_IN_YEAR);
+    },
+    fullName() {
+      return `${this.firstName} ${this.lastName}`;
     }
   }
 });
