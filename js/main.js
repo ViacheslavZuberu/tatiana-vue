@@ -1,10 +1,32 @@
+Vue.component("counter", {
+  template: `
+    <div>
+      <p>
+        <slot></slot>: {{ value }} раз
+      </p>
+      <button @click="updateValue()">+</button>
+    </div>
+  `,
+  data() {
+    return {
+      value: 0
+    };
+  },
+  methods: {
+    updateValue() {
+      this.$emit("share");
+      this.value++;
+    }
+  }
+});
+
 let app = new Vue({
   el: "#app",
   data: {
     firstName: "Bob",
     lastName: "Smith",
     birthDate: new Date(1988, 01, 14),
-    value: 0,
+    total: 0,
     items: [
       {
         id: 1,
@@ -29,8 +51,8 @@ let app = new Vue({
     ]
   },
   methods: {
-    updateValue() {
-      this.value++;
+    updateTotal() {
+      this.total++;
     }
   },
   computed: {

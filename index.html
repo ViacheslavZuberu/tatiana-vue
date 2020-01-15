@@ -17,10 +17,10 @@
         {{ item.title }}
       </li>
     </ul>
-    <div>
-      <p>{{ value }}</p>
-      <button @click="updateValue()">+</button>
-    </div>
+    <p>Total: {{ total }}</p>
+    <counter @share="updateTotal">Я покушал</counter>
+    <counter @share="updateTotal">Я моргнул</counter>
+    <counter @share="updateTotal">Я зевнул</counter>
   </div>
 
   <script src="js/vue.min.js"></script>
